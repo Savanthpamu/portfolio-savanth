@@ -1,31 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { client, urlFor } from '../lib/sanityClient';
-
-const FALLBACK = {
-  name: 'Savanth Pamu',
-  role: 'Full Stack Developer',
-  bio1: 'Passionate about creating innovative web solutions using modern technologies. With expertise in MongoDB, Express.js, React.js, Next.js, Node.js, and PHP, I specialize in building scalable and efficient web applications that deliver exceptional user experiences.',
-  bio2: "Currently working at Edgroom, a product-based startup, where I'm building an education community platform that connects learners and educators. I thrive on turning complex problems into elegant, user-friendly solutions, combining technical expertise with creative problem-solving to deliver impactful educational technology.",
-  profileImage: null,
-};
 
 const About = () => {
-  const [about, setAbout] = React.useState(null);
   const [hasAnimated, setHasAnimated] = React.useState(false);
-  const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true, rootMargin: '50px' });
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true,
+    rootMargin: '50px',
+  });
 
   React.useEffect(() => {
-    client.fetch(`*[_type == "about"][0]`).then(setAbout).catch(() => {});
-  }, []);
-
-  React.useEffect(() => {
-    if (inView && !hasAnimated) setHasAnimated(true);
+    if (inView && !hasAnimated) {
+      setHasAnimated(true);
+    }
   }, [inView, hasAnimated]);
-
-  const data = about || FALLBACK;
-  const imgSrc = data.profileImage ? urlFor(data.profileImage).width(560).url() : '/savanth_pic.jpg';
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
@@ -38,6 +27,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 min-h-screen bg-gradient-to-br from-gray-900 via-gray-950 to-black relative overflow-hidden flex items-center">
+      {/* Animated glassy background shapes */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <motion.div
           initial={{ opacity: 0 }}
@@ -56,8 +46,18 @@ const About = () => {
               left: `${10 + i * 30}%`,
               top: `${20 + i * 15}%`,
             }}
-            animate={{ y: [0, 40, 0], x: [0, -30, 0], opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 10 + i * 2, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut', delay: i * 1.2 }}
+            animate={{
+              y: [0, 40, 0],
+              x: [0, -30, 0],
+              opacity: [0.7, 1, 0.7],
+            }}
+            transition={{
+              duration: 10 + i * 2,
+              repeat: Infinity,
+              repeatType: 'mirror',
+              ease: 'easeInOut',
+              delay: i * 1.2,
+            }}
           />
         ))}
       </div>
@@ -77,6 +77,7 @@ const About = () => {
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center justify-center">
+          {/* Profile Image with glassy border and hover effect */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
@@ -86,13 +87,14 @@ const About = () => {
             style={{ width: '280px', height: '420px' }}
           >
             <img
-              src={imgSrc}
-              alt={data.name}
+              src="/savanth_pic.jpg"
+              alt="Savanth Pamu"
               className="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
           </motion.div>
 
+          {/* Glassy bio card */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
@@ -101,18 +103,28 @@ const About = () => {
           >
             <div className="text-center lg:text-left">
               <h3 className="text-2xl sm:text-3xl lg:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 mb-2">
-                {data.name}
+                Savanth Pamu
               </h3>
               <h4 className="text-xl sm:text-2xl lg:text-2xl font-semibold bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent mb-4">
-                {data.role}
+                Full Stack Developer
               </h4>
             </div>
-
+            
             <div className="space-y-4 text-center lg:text-left">
-              <p className="text-gray-200 text-base sm:text-lg leading-relaxed">{data.bio1}</p>
-              <p className="text-gray-200 text-base sm:text-lg leading-relaxed">{data.bio2}</p>
+              <p className="text-gray-200 text-base sm:text-lg leading-relaxed">
+                Passionate about creating innovative web solutions using modern technologies.
+                With expertise in MongoDB, Express.js, React.js, Next.js, Node.js, and PHP, I specialize
+                in building scalable and efficient web applications that deliver exceptional
+                user experiences.
+              </p>
+              <p className="text-gray-200 text-base sm:text-lg leading-relaxed">
+                Currently working at Edgroom, a product-based startup, where I'm building an 
+                education community platform that connects learners and educators. I thrive on 
+                turning complex problems into elegant, user-friendly solutions, combining technical 
+                expertise with creative problem-solving to deliver impactful educational technology.
+              </p>
             </div>
-
+            
             <div className="text-center lg:text-left mt-4">
               <motion.button
                 whileHover={{ scale: 1.05, boxShadow: '0 0 24px #a78bfa' }}
@@ -121,6 +133,7 @@ const About = () => {
                 className="relative bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 text-white px-6 sm:px-8 py-3 rounded-full font-semibold shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-purple-400 text-base sm:text-lg tracking-wide overflow-hidden group w-full sm:w-auto"
               >
                 <span className="relative z-10">Download Resume</span>
+                {/* Shine effect */}
                 <span className="absolute left-0 top-0 h-full w-full pointer-events-none">
                   <span className="block h-full w-full group-hover:animate-shine" style={{
                     background: 'linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.7) 50%, transparent 100%)',

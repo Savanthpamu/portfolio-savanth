@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { client } from '../lib/sanityClient';
 
 const CIRCLE_POSITIONS = [
   { left: '10%', top: '15%' },
@@ -18,27 +17,15 @@ const PARTICLE_POSITIONS = Array.from({ length: 20 }, (_, i) => ({
   delay: (i * 0.15) % 2,
 }));
 
-const FALLBACK = {
-  name: 'Savanth',
-  roles: ['MERN Stack Developer', 'Full Stack Engineer', 'Web Developer'],
-  description: 'Building modern web applications with React.js, Next.js, Node.js, PHP, and the MERN stack',
-};
-
 const Hero = () => {
-  const [hero, setHero] = React.useState(null);
-
-  React.useEffect(() => {
-    client.fetch(`*[_type == "hero"][0]`).then(setHero).catch(() => {});
-  }, []);
-
-  const data = hero || FALLBACK;
-  const sequence = data.roles.flatMap((role) => [role, 2000]);
-
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Animated background elements */}
       <div className="absolute inset-0">
+        {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20" />
 
+        {/* Animated circles */}
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={i}
@@ -50,22 +37,42 @@ const Hero = () => {
               left: CIRCLE_POSITIONS[i].left,
               top: CIRCLE_POSITIONS[i].top,
             }}
-            animate={{ x: [0, 30, 0], y: [0, 30, 0], scale: [1, 1.1, 1] }}
-            transition={{ duration: 8 + i, repeat: Infinity, ease: "linear" }}
+            animate={{
+              x: [0, 30, 0],
+              y: [0, 30, 0],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 8 + i,
+              repeat: Infinity,
+              ease: "linear"
+            }}
           />
         ))}
 
+        {/* Floating particles */}
         {PARTICLE_POSITIONS.map((pos, i) => (
           <motion.div
             key={`particle-${i}`}
             className="absolute w-1 h-1 bg-blue-500/30 rounded-full"
-            style={{ left: pos.left, top: pos.top }}
-            animate={{ y: [0, -100, 0], opacity: [0, 1, 0] }}
-            transition={{ duration: pos.duration, repeat: Infinity, ease: "linear", delay: pos.delay }}
+            style={{
+              left: pos.left,
+              top: pos.top,
+            }}
+            animate={{
+              y: [0, -100, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: pos.duration,
+              repeat: Infinity,
+              ease: "linear",
+              delay: pos.delay,
+            }}
           />
         ))}
       </div>
-
+      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,13 +86,19 @@ const Hero = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">{data.name}</span>
+            Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">Savanth</span>
           </motion.h1>
-
+          
           <div className="text-xl sm:text-2xl text-gray-300 mb-8">
             <TypeAnimation
-              key={sequence.join(',')}
-              sequence={sequence}
+              sequence={[
+                'MERN Stack Developer',
+                2000,
+                'Full Stack Engineer',
+                2000,
+                'Web Developer',
+                2000,
+              ]}
               wrapper="span"
               speed={50}
               repeat={Infinity}
@@ -99,7 +112,7 @@ const Hero = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            {data.description}
+            Building modern web applications with React.js, Next.js, Node.js, PHP, and the MERN stack
           </motion.p>
 
           <motion.div
