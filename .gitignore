@@ -13,6 +13,8 @@ server/.env
 # Build output
 client/dist/
 client/build/
+studio/dist/
+studio/.sanity/
 
 # macOS
 .DS_Store
