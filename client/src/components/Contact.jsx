@@ -93,7 +93,7 @@ const Contact = () => {
   const handleButtonClick = () => {
     if (clickAudioRef.current) {
       clickAudioRef.current.currentTime = 0;
-      clickAudioRef.current.play();
+      clickAudioRef.current.play().catch(() => {});
     }
   };
 
