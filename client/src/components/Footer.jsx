@@ -35,9 +35,9 @@ const Footer = () => {
           >
             <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-blue-500" onClick={() => {/* TODO: Add profile icon click functionality */}} style={{ cursor: 'pointer' }}>
               <img
-                src="/savanth_pic.jpg"
+                src="/savanth_winny.png"
                 alt="Savanth Pamu"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
             <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
