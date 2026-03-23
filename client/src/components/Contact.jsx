@@ -63,12 +63,18 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('sending');
+
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000);
+
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5005'}/api/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
+        signal: controller.signal,
       });
+      clearTimeout(timeoutId);
       const result = await response.json();
       if (result.success) {
         setStatus('success');
@@ -78,6 +84,7 @@ const Contact = () => {
         setStatus('error');
       }
     } catch {
+      clearTimeout(timeoutId);
       setStatus('error');
     }
     setTimeout(() => setStatus(''), 5000);
