@@ -18,8 +18,8 @@ const About = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/SavanthPamu_resume (3).pdf';
-    link.download = 'SavanthPamu_Resume.pdf';
+    link.href = '/Savanth_resume.pdf';
+    link.download = 'Savanth_resume.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -87,7 +87,7 @@ const About = () => {
             style={{ width: '280px', height: '420px' }}
           >
             <img
-              src="/savanth_pic.jpg"
+              src="/savanth_winny.png"
               alt="Savanth Pamu"
               className="w-full h-full object-cover rounded-2xl hover:scale-105 transition-transform duration-500"
             />
