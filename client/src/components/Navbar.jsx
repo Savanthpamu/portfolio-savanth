@@ -40,7 +40,7 @@ const Navbar = () => {
           >
             <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-blue-500 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300" onClick={() => {/* TODO: Add profile icon click functionality */}} style={{ cursor: 'pointer' }}>
               <img
-                src="/savanth_pic.jpg"
+                src="/savanth_winny.png"
                 alt="Savanth Pamu"
                 className="w-full h-full object-cover"
               />
