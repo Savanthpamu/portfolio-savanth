@@ -92,9 +92,9 @@ const Hero = () => {
           <div className="text-xl sm:text-2xl text-gray-300 mb-8">
             <TypeAnimation
               sequence={[
-                'MERN Stack Developer',
+                'Full Stack Developer',
                 2000,
-                'Full Stack Engineer',
+                'MERN Stack Developer',
                 2000,
                 'Web Developer',
                 2000,
