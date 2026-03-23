@@ -1,19 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { 
-  SiMongodb, 
-  SiExpress, 
-  SiReact, 
-  SiNextdotjs, 
-  SiNodedotjs, 
-  SiPhp, 
-  SiJavascript, 
-  SiTypescript, 
-  SiHtml5, 
-  SiCss3, 
-  SiGit 
+import {
+  SiMongodb,
+  SiExpress,
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPhp,
+  SiJavascript,
+  SiTypescript,
+  SiHtml5,
+  SiGit,
+  SiPython,
+  SiFlask,
+  SiMysql,
+  SiAmazonaws,
+  SiPostman
 } from 'react-icons/si';
+import { FaJava } from 'react-icons/fa';
 
 const BLOB_POSITIONS = [
   { left: '5%', top: '10%' },
@@ -112,15 +117,75 @@ const skillsData = [
     iconColor: 'text-orange-500',
     brandColor: 'text-orange-600'
   },
-  { 
-    name: 'Git', 
-    level: 85, 
+  {
+    name: 'Git',
+    level: 85,
     icon: SiGit,
     color: 'from-orange-600 to-red-600',
     bgColor: 'bg-orange-600/10',
     borderColor: 'border-orange-600/20',
     iconColor: 'text-orange-600',
     brandColor: 'text-orange-700'
+  },
+  {
+    name: 'Python',
+    level: 80,
+    icon: SiPython,
+    color: 'from-blue-400 to-yellow-500',
+    bgColor: 'bg-blue-400/10',
+    borderColor: 'border-blue-400/20',
+    iconColor: 'text-blue-400',
+    brandColor: 'text-blue-400'
+  },
+  {
+    name: 'Java',
+    level: 75,
+    icon: FaJava,
+    color: 'from-red-500 to-orange-600',
+    bgColor: 'bg-red-500/10',
+    borderColor: 'border-red-500/20',
+    iconColor: 'text-red-500',
+    brandColor: 'text-red-500'
+  },
+  {
+    name: 'Flask',
+    level: 78,
+    icon: SiFlask,
+    color: 'from-gray-400 to-gray-600',
+    bgColor: 'bg-gray-400/10',
+    borderColor: 'border-gray-400/20',
+    iconColor: 'text-gray-300',
+    brandColor: 'text-gray-300'
+  },
+  {
+    name: 'MySQL',
+    level: 82,
+    icon: SiMysql,
+    color: 'from-blue-500 to-orange-400',
+    bgColor: 'bg-blue-500/10',
+    borderColor: 'border-blue-500/20',
+    iconColor: 'text-blue-400',
+    brandColor: 'text-blue-400'
+  },
+  {
+    name: 'AWS S3',
+    level: 72,
+    icon: SiAmazonaws,
+    color: 'from-orange-400 to-yellow-500',
+    bgColor: 'bg-orange-400/10',
+    borderColor: 'border-orange-400/20',
+    iconColor: 'text-orange-400',
+    brandColor: 'text-orange-400'
+  },
+  {
+    name: 'Postman',
+    level: 85,
+    icon: SiPostman,
+    color: 'from-orange-500 to-red-400',
+    bgColor: 'bg-orange-500/10',
+    borderColor: 'border-orange-500/20',
+    iconColor: 'text-orange-500',
+    brandColor: 'text-orange-500'
   },
 ];
 

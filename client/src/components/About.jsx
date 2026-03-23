@@ -106,22 +106,16 @@ const About = () => {
                 Savanth Pamu
               </h3>
               <h4 className="text-xl sm:text-2xl lg:text-2xl font-semibold bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent mb-4">
-                Full Stack Developer
+                Software Developer
               </h4>
             </div>
             
             <div className="space-y-4 text-center lg:text-left">
               <p className="text-gray-200 text-base sm:text-lg leading-relaxed">
-                Passionate about creating innovative web solutions using modern technologies.
-                With expertise in MongoDB, Express.js, React.js, Next.js, Node.js, and PHP, I specialize
-                in building scalable and efficient web applications that deliver exceptional
-                user experiences.
+                Software Developer with hands-on experience building AI-powered pipelines, scalable backend systems, and production-grade full-stack applications. Proficient in Python, JavaScript, React.js, Express.js, Flask, and MySQL — with a focus on clean architecture, performance, and reliability.
               </p>
               <p className="text-gray-200 text-base sm:text-lg leading-relaxed">
-                Currently working at Edgroom, a product-based startup, where I'm building an 
-                education community platform that connects learners and educators. I thrive on 
-                turning complex problems into elegant, user-friendly solutions, combining technical 
-                expertise with creative problem-solving to deliver impactful educational technology.
+                Currently at Edgroom Knowledge Systems, where I design document processing pipelines using Gemini API, implement caching strategies, and own complete system lifecycles from architecture to production. Previously at Busitron IT Solutions, I built and deployed multi-user full-stack applications with RBAC, optimized SQL schemas, and led feature delivery end to end.
               </p>
             </div>
             

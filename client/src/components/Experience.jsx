@@ -5,39 +5,35 @@ import { HiOutlineBriefcase, HiOutlineBuildingOffice2, HiOutlineCalendar, HiOutl
 
 const experienceData = [
   {
+    title: 'Software Developer',
+    company: 'Edgroom Knowledge Systems Pvt. Ltd.',
+    period: 'Jul 2025 - Present',
+    location: 'Hyderabad, India',
+    description: 'Building AI-powered document processing pipelines and scalable admin systems for an education technology platform.',
+    achievements: [
+      'Designed a fault-tolerant document processing pipeline ingesting exam PDFs with parallel Gemini API calls (question detection + answer extraction), processing 50+ questions per document and reducing manual effort by ~70%',
+      'Reduced per-document processing time by ~40–50% through parallel LLM execution (Promise.all), improving batch-processing throughput',
+      'Implemented SHA-256-based response caching to eliminate duplicate API calls, reducing operational cost and improving system efficiency',
+      'Built structured validation and normalization layers (JSON validation, LaTeX cleanup, page-index verification) ensuring data integrity and reliable answer mapping',
+      'Developed scalable admin question-bank system supporting thousands of records with multi-dimensional filtering, pagination, batch operations, and backend API caching',
+      'Integrated token-level cost tracking (INR & USD) and staged progress observability for document workflows, improving operational visibility',
+      'Mentored junior developers on AI-powered workflow design, prompt structuring, and backend validation strategies',
+      'Owned complete system lifecycle including requirement analysis, architectural decisions, deployment, production debugging, and iterative refinement'
+    ]
+  },
+  {
     title: 'Full Stack Developer',
-    company: 'Edgroom',
-    period: '2025 - Present',
-    description: 'Currently working at Edgroom, a product-based startup focused on building an innovative education community platform that connects learners, educators, and industry professionals.',
-    achievements: [
-      'Developing and maintaining the main website using modern web technologies including React.js, Next.js, and PHP',
-      'Building responsive and interactive user interfaces for the education community platform',
-      'Implementing features for course management, user profiles, community discussions, and learning analytics',
-      'Collaborating with cross-functional teams to deliver high-quality educational technology solutions',
-      'Working on both frontend and backend development to create seamless user experiences',
-      "Contributing to the platform's scalability and performance optimization for growing user base"
-    ]
-  },
-  {
-    title: 'Junior Full Stack Developer',
     company: 'Busitron IT Solutions',
-    period: '2025',
-    description: 'Worked as a Junior Full Stack Developer, focusing on web application development using the MERN stack.',
+    period: 'Oct 2024 - Jun 2025',
+    location: 'Visakhapatnam, India',
+    description: 'Developed and deployed full-stack production applications supporting multi-user workflows using React.js, Express.js, and MySQL.',
     achievements: [
-      'Developed and maintained web applications using React.js and Node.js',
-      'Collaborated with team members on various projects',
-      'Implemented responsive designs and user-friendly interfaces'
-    ]
-  },
-  {
-    title: 'MERN Stack Intern',
-    company: 'Busitron IT Solutions',
-    period: '2024',
-    description: 'Completed internship program focusing on MERN stack development.',
-    achievements: [
-      'Learned and applied MERN stack technologies in real-world projects',
-      'Participated in development of web applications',
-      'Gained hands-on experience with MongoDB, Express.js, React.js, and Node.js'
+      'Developed and deployed full-stack production applications using React.js, Express.js, and MySQL supporting multi-user workflows',
+      'Designed normalized database schemas and optimized complex SQL queries to improve performance and reduce redundancy',
+      'Built modular RESTful APIs with structured validation and consistent error handling to enhance maintainability',
+      'Implemented role-based access control (RBAC) and secure authentication mechanisms for controlled system access',
+      'Led feature implementation discussions and collaborated cross-functionally to translate business requirements into scalable technical solutions',
+      'Participated in production deployments, monitored runtime behavior, and resolved critical issues to maintain application stability'
     ]
   }
 ];
