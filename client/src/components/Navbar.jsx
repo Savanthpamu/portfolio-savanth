@@ -42,7 +42,7 @@ const Navbar = () => {
               <img
                 src="/savanth_winny.png"
                 alt="Savanth Pamu"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
             </div>
             <div className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent" style={{ fontFamily: 'Pacifico, cursive' }}>
