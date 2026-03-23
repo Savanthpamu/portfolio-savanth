@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiOutlineUser, HiOutlineMail, HiOutlineChatAlt2, HiOutlineLocationMarker, HiOutlineCheckCircle, HiOutlineExclamationCircle } from 'react-icons/hi';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
@@ -63,27 +64,17 @@ const Contact = () => {
     e.preventDefault();
     setStatus('sending');
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 15000);
-
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5005'}/api/contact`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-        signal: controller.signal,
-      });
-      clearTimeout(timeoutId);
-      const result = await response.json();
-      if (result.success) {
-        setStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-        formRef.current.reset();
-      } else {
-        setStatus('error');
-      }
+      await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+      formRef.current.reset();
     } catch {
-      clearTimeout(timeoutId);
       setStatus('error');
     }
     setTimeout(() => setStatus(''), 5000);
