@@ -37,7 +37,6 @@ const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [activeField, setActiveField] = useState('');
   const [showMsgSuggestions, setShowMsgSuggestions] = useState(false);
-  const clickAudioRef = useRef(null);
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -90,19 +89,12 @@ const Contact = () => {
     setTimeout(() => setStatus(''), 5000);
   };
 
-  const handleButtonClick = () => {
-    if (clickAudioRef.current) {
-      clickAudioRef.current.currentTime = 0;
-      clickAudioRef.current.play().catch(() => {});
-    }
-  };
 
   // Filter message suggestions based on input
   const filteredSuggestions = formData.message
     ? messageSuggestions.filter(s => s.toLowerCase().includes(formData.message.toLowerCase()) && s.toLowerCase() !== formData.message.toLowerCase())
     : messageSuggestions;
 
-  const clickSoundFile = 'https://cdn.pixabay.com/audio/2022/03/15/audio_115b9b7bfa.mp3';
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-gray-950 to-black min-h-screen flex items-center relative overflow-hidden">
@@ -283,7 +275,6 @@ const Contact = () => {
                 className="w-full relative bg-gradient-to-r from-blue-400 via-purple-400 to-orange-400 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-orange-400 disabled:opacity-60 text-lg tracking-wide overflow-hidden group"
                 whileHover={{}}
                 whileTap={{ scale: 0.96 }}
-                onClick={handleButtonClick}
               >
                 <span className="relative z-10">{status === 'sending' ? 'Sending...' : 'Send Message'}</span>
                 {/* Shine effect (silver) */}
@@ -295,8 +286,6 @@ const Contact = () => {
                   }}></span>
                 </span>
               </motion.button>
-              {/* Click sound audio */}
-              <audio ref={clickAudioRef} src={clickSoundFile} preload="auto" />
               {/* Status Messages */}
               <AnimatePresence>
                 {status === 'success' && (
